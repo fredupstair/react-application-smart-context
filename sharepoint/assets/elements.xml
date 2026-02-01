@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <CustomAction
+        Title="SmartContextApp"
+        Location="ClientSideExtension.ApplicationCustomizer"
+        ClientSideComponentId="48cf64ba-259f-4964-be91-efd229cd49c6"
+        ClientSideComponentProperties="{&quot;testMessage&quot;:&quot;Test message&quot;}">
+    </CustomAction>
+</Elements>
