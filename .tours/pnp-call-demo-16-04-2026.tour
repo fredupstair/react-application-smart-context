@@ -1,0 +1,42 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Pnp Call Demo 16-04-2026",
+  "steps": [
+    {
+      "file": "src/extensions/smartContextApp/components/SmartContextContainer.tsx",
+      "description": "This is the main web part that renders the floating button and the panel.",
+      "line": 6
+    },
+    {
+      "file": "src/extensions/smartContextApp/components/SmartContextPanel.tsx",
+      "description": "fetchSmartContext starts the loading process and the API calls. The important part is that after the calls, and some response cleanup, the binding is done directly to the JSON; I pass validatedData to setState.",
+      "line": 35
+    },
+    {
+      "file": "src/extensions/smartContextApp/services/CopilotService.ts",
+      "description": "Let’s take a look at getSmartContext.\r\nIt calls the two Graph APIs for Copilot Chat: the first one creates a conversation to obtain the conversation ID, and then I use sendChatMessage by passing the conversation ID and the page URL.\r\n",
+      "line": 84
+    },
+    {
+      "file": "src/extensions/smartContextApp/services/CopilotService.ts",
+      "description": "Here is createConversation, which calls /copilot/conversations — as you can see, it’s in beta.",
+      "line": 28
+    },
+    {
+      "file": "src/extensions/smartContextApp/services/CopilotService.ts",
+      "description": "For sendChatMessage, I prepare a more structured body. In the message, I pass SMART_CONTEXT_SYSTEM_PROMPT. I use locationHint, and under contextualResources I include the pageUrl in the files. To prevent it from straying too much in webContext, isWebEnabled is false",
+      "line": 45
+    },
+    {
+      "file": "src/extensions/smartContextApp/constants/systemPrompt.ts",
+      "description": "Let’s get to the core of it all: the SMART_CONTEXT_SYSTEM_PROMPT.\r\n\r\nI spent quite some time crafting a prompt that would respond as accurately as possible. I had to clearly define the mission, the JSON structure, and it helped a lot to include the possible values and set rules for each field.\r\n\r\nHonestly, this was very much an experiment. I don’t expect the APIs to be used exactly like this, but I was curious to understand their behavior. They’re still in beta, and overall I’m quite satisfied with the results. It opens up many possibilities, and there’s definitely a lot more to explore and discuss here.\r\n",
+      "line": 1
+    },
+    {
+      "file": "config/package-solution.json",
+      "description": "Final note: webApiPermissionRequests must be properly configured according to the documentation with all the required permissions. Some are pre-approved, while others need to be approved.\r\n",
+      "line": 28
+    }
+  ],
+  "ref": "master"
+}
